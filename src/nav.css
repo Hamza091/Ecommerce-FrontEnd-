@@ -1,0 +1,63 @@
+.nav
+{
+    display: flex;
+    width: 250%;
+    background-color: rgba(78, 74, 74, 0.925);
+}
+.list
+{
+   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    width: 100%;
+    list-style: none;
+    font-size: 23px;
+    font-weight: 600;
+    font-family: "Comic Sans MS", cursive, sans-serif; 
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.logo
+{
+    margin-right: 32%;
+}
+.home
+{
+    margin-right: 30px;
+}
+.cart
+{
+    
+    margin-right: 30px;
+}
+@media (max-width:500px) {
+
+    /* your conditional / responsive CSS inside this condition */
+  
+    .logo{
+        margin-right: 65%;
+    }
+    .nav
+    {
+        padding-bottom: 50px;
+    }
+    .list
+    {
+       padding-top: 20px;
+        font-size: 27px;
+        font-family: 'Times New Roman', Times, serif;
+        
+    }
+    .home
+    {
+        margin-right: 20px;
+    }
+    .cart{
+        margin-left: -5px;
+    }
+  
+  }
