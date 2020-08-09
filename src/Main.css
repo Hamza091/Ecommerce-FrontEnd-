@@ -1,0 +1,53 @@
+.main-container
+{
+   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;    
+    background-color: rgba(212, 212, 212, 0.781);
+}
+.product
+{
+
+    border-radius: 3%;
+    flex: 0; 
+   justify-content: center;
+   margin: 10px;
+   background-color:rgb(255, 255, 255);
+   padding: 5px;
+   
+}
+.images{
+    width: 300px;
+    height: 250px;
+    
+}
+.title
+{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.price
+{
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.addToCart
+{
+    padding: 6px;
+    margin: 4px;
+    padding-right: 10px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: rgba(167, 108, 185, 0.925);
+    font-size: 14px;
+    font-family: "Comic Sans MS", cursive, sans-serif;;
+    font-weight: bold;
+    cursor: pointer;
+}
