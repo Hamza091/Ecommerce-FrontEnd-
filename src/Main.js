@@ -1,9 +1,8 @@
-import React,{useContext} from 'react'
+import React,{useContext,useState} from 'react'
 import {storeData} from './Data';
 import './Main.css'
 function Main() {
-    const {data,addProduct}=useContext(storeData)
-    
+    const {data,addProduct,isClicked}=useContext(storeData)
     return (
         <div className="main-container">
             {
@@ -11,8 +10,8 @@ function Main() {
                 <img src={items.image} className="images"></img>
                 <div className="title">{items.title}</div>
                 <div className="price">${items.price}</div>
-                <button className="addToCart" onClick={()=>{addProduct({...[items.id,items.title,items.price,items.image]})}}>Add to cart</button>
-                
+                <button className={items.check?"addToCart":"addedToCart"} onClick={items.check?()=>{addProduct({...[items.id,items.title,items.price,items.image,items.check=false]})}:null}>Add to cart</button>
+                {!items.check?<div className="product-added">Added</div>:null}
                 </div>)
             }
             
