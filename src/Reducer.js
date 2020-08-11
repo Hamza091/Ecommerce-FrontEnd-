@@ -7,5 +7,8 @@ export const  Reducer=(state,action)=>
             return([...state,action.payload])
         case 'INCREAMENT_QUANTITY':
             return([...state,action.payload])
+        case 'DECREASE_QUANTITY':
+            return([...state,action.payload])
+            
     }
 }

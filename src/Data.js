@@ -20,7 +20,7 @@ export let userData=[
             payload:product
         })
        setCountProduct(countProduct+=1)
-    console.log(userData)
+    // console.log(userData)
         
     }
     const increaseQuantity=(product)=>
@@ -32,10 +32,18 @@ export let userData=[
       })
       // console.log(userData)
     }
+    const decreaseQuantity=(product)=>
+    {
+      dispatch({
+        type:"DECREASE_QUANTITY",
+        payload:product
+      })
+      console.log(userData)
+    }
     
     return (
         
-      <storeData.Provider value={{data,addProduct,userData,countProduct,increaseQuantity}}>
+      <storeData.Provider value={{data,addProduct,userData,countProduct,increaseQuantity,decreaseQuantity}}>
         {children}
       </storeData.Provider>
     )
