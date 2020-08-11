@@ -1,7 +1,8 @@
 import React,{useContext} from 'react'
 import './nav.css'
 import {storeData} from './Data';
- import cartLogo from './cartLogo.png'
+import cartLogo from './cartLogo.png'
+import {Link} from 'react-router-dom';
 
 function Nav() {
         const {countProduct}= useContext(storeData)
@@ -11,9 +12,9 @@ function Nav() {
         <div className="nav">
             <ul className="list">
             <li className="logo">EStore</li>
-            <li className="home"><a href="">Home</a></li>
-    <li className="cart"><a href="">Cart<img  src={cartLogo} className="logoCart"></img >
-    <div className="count">{countProduct}</div></a></li>
+            <li className="home"><Link to="/">Home</Link></li>
+    <li className="cart"><Link to="/test">Cart</Link><img  src={cartLogo} className="logoCart"></img >
+    <div className="count">{countProduct}</div></li>
             </ul>
             
         </div>
