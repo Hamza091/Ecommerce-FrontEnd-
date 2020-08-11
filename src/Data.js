@@ -13,22 +13,29 @@ export let userData=[
     const [state, dispatch] = useReducer(Reducer,userData)
     const addProduct=(product)=>{        
         
-        userData=[...userData,product]
+        userData=[...userData,{id:product[0],title:product[1],price:product[2],image:product[3],check:product[4],quantity:product[5]}]
         
         dispatch({
             type:"ADD_PRODUCT",
             payload:product
         })
        setCountProduct(countProduct+=1)
-         console.log(data)
-         console.log(userData)
-        console.log(countProduct)
+    console.log(userData)
         
+    }
+    const increaseQuantity=(product)=>
+    {
+   
+      dispatch({
+        type:"INCREAMENT_QUANTITY",
+        payload:product
+      })
+      // console.log(userData)
     }
     
     return (
         
-      <storeData.Provider value={{data,addProduct,userData,countProduct}}>
+      <storeData.Provider value={{data,addProduct,userData,countProduct,increaseQuantity}}>
         {children}
       </storeData.Provider>
     )

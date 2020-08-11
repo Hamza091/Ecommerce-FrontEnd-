@@ -3,7 +3,7 @@ import './App.css';
 import {Data} from './Data';
 import Nav from './Nav';
 import Main from './Main';
-import Test from './Test';
+import Cart from './Cart';
 import { Route } from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ function App() {
    <Data >
      <Nav />
      <Route exact path="/" component={Main} />
-     <Route path="/test" component={Test} />
+     <Route path="/cart" component={Cart} />
      {/* <Main /> */}
   </Data> 
    

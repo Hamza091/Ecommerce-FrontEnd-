@@ -13,7 +13,7 @@ function Nav() {
             <ul className="list">
             <li className="logo">EStore</li>
             <li className="home"><Link to="/">Home</Link></li>
-    <li className="cart"><Link to="/test">Cart</Link><img  src={cartLogo} className="logoCart"></img >
+    <li className="cart"><Link to="/cart">Cart</Link><img  src={cartLogo} className="logoCart"></img >
     <div className="count">{countProduct}</div></li>
             </ul>
             
