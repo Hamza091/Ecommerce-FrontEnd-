@@ -4,7 +4,7 @@ import {storeData} from './Data';
  import cartLogo from './cartLogo.png'
 
 function Nav() {
-        // const {data}= useContext(storeData)
+        const {countProduct}= useContext(storeData)
         // console.log(data)
     return (
         
@@ -12,7 +12,8 @@ function Nav() {
             <ul className="list">
             <li className="logo">EStore</li>
             <li className="home"><a href="">Home</a></li>
-            <li className="cart"><a href="">Cart<img  src={cartLogo} className="logoCart"></img ></a></li>
+    <li className="cart"><a href="">Cart<img  src={cartLogo} className="logoCart"></img >
+    <div className="count">{countProduct}</div></a></li>
             </ul>
             
         </div>

@@ -1,8 +1,9 @@
 .nav
 {
     display: flex;
-    width: 250%;
+    width: 100%;
     background-color: rgba(78, 74, 74, 0.925);
+    height: 90px;
 }
 .list
 {
@@ -24,10 +25,12 @@ a{
 .logo
 {
     margin-right: 32%;
+    
 }
 .home
 {
     margin-right: 30px;
+    margin-left: 710px;
 }
 .cart
 {
@@ -36,7 +39,7 @@ a{
     /* border: 2px solid black; */
     top: -15px;
     left: -10px;
-  
+ 
 }
 
 @media (max-width:500px) {
@@ -77,4 +80,16 @@ a{
       left: 1px;
       bottom: -10px;
       
+  }
+  .count
+  {
+      position: relative;
+      font-size: 13.5px;
+      border-radius: 50%;
+      background-color: rgb(238, 61, 61);
+      width: 15%;
+      padding: 4px;
+      left: 95px;
+      top: -45px;
+      text-align: center;
   }
