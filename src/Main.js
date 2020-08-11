@@ -1,6 +1,7 @@
 import React,{useContext,useState} from 'react'
 import {storeData} from './Data';
 import './Main.css'
+
 function Main() {
     const {data,addProduct,isClicked}=useContext(storeData)
     return (

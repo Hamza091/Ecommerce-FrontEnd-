@@ -18,8 +18,8 @@ export let userData=[
             payload:product
         })
        
-        // console.log(data)
-        // console.log(userData)
+         console.log(data)
+         console.log(userData)
      
         
     }
