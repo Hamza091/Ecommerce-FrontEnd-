@@ -9,6 +9,8 @@ export const  Reducer=(state,action)=>
             return([...state,action.payload])
         case 'DECREASE_QUANTITY':
             return([...state,action.payload])
+        case 'DELETE_ITEM':
+            return(state.filter(item=>item.id!==action.payload))
             
     }
 }

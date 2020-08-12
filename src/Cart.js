@@ -2,10 +2,10 @@ import React,{useContext,useState,useEffect} from 'react'
 import {storeData} from './Data'
 function Cart() {
     
-    const {userData,increaseQuantity,decreaseQuantity} = useContext(storeData)
-    useEffect(() => {
-      console.log(userData)
-    }, [decreaseQuantity])
+    const {userData,increaseQuantity,decreaseQuantity,deleteItem} = useContext(storeData)
+    // useEffect(() => {
+    //   console.log(userData)
+    // }, [decreaseQuantity])
     // console.log(userData)
     return (
  
@@ -18,6 +18,7 @@ function Cart() {
                 <td><button onClick={()=>{increaseQuantity(items=items.quantity+=1)}}>+</button>{items.quantity}
                 <button onClick={items.quantity>1?()=>{decreaseQuantity(items=items.quantity-=1)}:null}>-</button></td>
                 <td>${items.quantity*items.price}</td>
+                <button onClick={()=>deleteItem(items)}>Delete</button>
             </tr>)}
                 </tbody>
         </table>

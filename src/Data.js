@@ -13,19 +13,21 @@ export let userData=[
     const [state, dispatch] = useReducer(Reducer,userData)
     const addProduct=(product)=>{        
         
-        userData=[...userData,{id:product[0],title:product[1],price:product[2],image:product[3],check:product[4],quantity:product[5]}]
-        
+        // userData=[...userData,{id:product[0],title:product[1],price:product[2],image:product[3],check:product[4],quantity:product[5]}]
+        // product={id:product[0],title:product[1],price:product[2],image:product[3],check:product[4],quantity:product[5]}}
+       userData=[...userData,product]
         dispatch({
             type:"ADD_PRODUCT",
             payload:product
         })
        setCountProduct(countProduct+=1)
-    // console.log(userData)
+    console.log(userData)
+    console.log(state)
         
     }
     const increaseQuantity=(product)=>
     {
-   
+      
       dispatch({
         type:"INCREAMENT_QUANTITY",
         payload:product
@@ -38,15 +40,26 @@ export let userData=[
         type:"DECREASE_QUANTITY",
         payload:product
       })
-      console.log(userData)
+      // console.log(userData)
     }
+    const deleteItem=(product)=>
+    {
     
+      userData=userData.filter(item=>item.id!==product.id)
+      data=data.map((items)=>items.id===product.id?{...items,check:items.check=true}: {...items,check:items.check})  
+      setCountProduct(countProduct-=1)
+      dispatch({
+        type:"DELETE_ITEM",
+        payload:product.id 
+      })
+     
+    }
     return (
         
-      <storeData.Provider value={{data,addProduct,userData,countProduct,increaseQuantity,decreaseQuantity}}>
+      <storeData.Provider value={{data,addProduct,userData,countProduct,increaseQuantity,decreaseQuantity,deleteItem}}>
         {children}
       </storeData.Provider>
     )
-}
+    }
 
 export default Data
