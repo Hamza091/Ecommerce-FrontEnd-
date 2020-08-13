@@ -1,0 +1,60 @@
+.table
+{
+    
+    position: relative;
+    top: 50px;
+    left: 70px;
+    padding: 10px;
+    /* background-color: #e9e9e9; */
+    background-color: rgba(116, 238, 224, 0.781);
+    /* border-collapse:separate;  */
+  border-spacing : 10px;
+  border-radius: 20px;
+ 
+}
+
+/* .tablebody{border: 2px solid red;} */
+.producttitle{border-radius: 10px;float: left;display: flex;padding:3px;font-family: Comic Sans MS;padding-right: 300px;font-size: 17px;font-weight: 600;background-color: rgb(252, 252, 252);border:2px solid rgba(16, 119, 76, 0.822);}
+.productprice{border-radius: 10px;text-align: center;padding:3px;font-family: Comic Sans MS;font-size: 17px;font-weight: 600;background-color: rgb(252, 252, 252);border:2px solid rgba(16, 119, 76, 0.822);}
+.productquantity{border-radius: 10px;text-align: center;padding:3px;font-family: Comic Sans MS;font-size: 17px;font-weight: 600;background-color: rgb(252, 252, 252);border:2px solid rgba(16, 119, 76, 0.822);}
+.productamount{border-radius: 10px;text-align: center;padding:3px;font-family: Comic Sans MS;font-size: 17px;font-weight: 600;background-color: rgb(252, 252, 252);border:2px solid rgba(16, 119, 76, 0.822);}
+.titlecolumn{border-radius: 10px;padding:3px;font-family: Comic Sans MS;font-size: 15.5px;font-weight: 500;background-color: rgb(252, 252, 252);border:2px solid rgba(16, 119, 76, 0.822);}
+.pricecolumn{border-radius: 10px;padding:3px;text-align: center;font-family: Comic Sans MS;border:2px solid rgba(16, 119, 76, 0.822);background-color: rgb(252, 252, 252);}
+.quantitycolumn{border-radius: 10px;padding:3px;text-align: center;font-family: Comic Sans MS;background-color: rgb(252, 252, 252);border:2px solid rgba(16, 119, 76, 0.822);}
+.totalpricecolumn{border-radius: 10px;padding:3px;text-align: center;font-family: Comic Sans MS;background-color: rgb(252, 252, 252);border:2px solid rgba(16, 119, 76, 0.822);}
+.deletebtncolumn{border-radius: 10px;padding:3px;text-align: center;font-family: Comic Sans MS;}
+.delete
+{
+    
+    padding: 5px;
+    border-radius: 10px;
+    padding-right: 15px;
+    text-align: center;
+    font-size: 15px;
+    font-family: Comic Sans MS;
+    font-weight: bold;
+    background-color: rgb(199, 164, 199);
+    border: 2px solid purple;
+    color: purple;
+    cursor: pointer;
+}
+.increase
+{
+    color: green;
+    background-color: rgb(252, 252, 252);
+    border: none;
+    font-weight: bolder;
+    font-size: 20px;
+    outline: none;
+}
+.decrease
+{
+    color: red;
+    background-color: rgb(252, 252, 252);
+    border: none;
+    font-size: 30px;
+    outline: none;
+    font-weight: bolder;
+   position: relative;
+  
+}
