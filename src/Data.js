@@ -9,19 +9,30 @@ export let userData=[
 ]
  export const Data =({children})=>{
   let[countProduct,setCountProduct]=useState(0)
-     
-    const [state, dispatch] = useReducer(Reducer,userData)
+  let [Amount,setAmount]=useState(0)
+    let [state, dispatch] = useReducer(Reducer,userData)
     const addProduct=(product)=>{        
-        
+    
       userData=[...userData,product]
         dispatch({
             type:"ADD_PRODUCT",
             payload:product
         })
+        setAmount(Amount+=product.price)
        setCountProduct(countProduct+=1)
     console.log(userData)
     console.log(state)
         
+    }
+    const checkout=()=>
+    {
+      dispatch({
+        type:"CHECKOUT"
+      })
+      userData=[]
+      state=[]
+      setCountProduct(0)
+      data.map((item)=>item.check=true)
     }
     const increaseQuantity=(product)=>
     {
@@ -30,6 +41,7 @@ export let userData=[
         type:"INCREAMENT_QUANTITY",
         payload:product
       })
+      setAmount(Amount+=product.price)
       // console.log(userData)
     }
     const decreaseQuantity=(product)=>
@@ -38,6 +50,7 @@ export let userData=[
         type:"DECREASE_QUANTITY",
         payload:product
       })
+      setAmount(Amount-=product.price)
       // console.log(userData)
     }
     const deleteItem=(product)=>
@@ -50,11 +63,11 @@ export let userData=[
         type:"DELETE_ITEM",
         payload:product.id 
       })
-     
+     setAmount(Amount-=(product.price*product.quantity))
     }
     return (
         
-      <storeData.Provider value={{data,addProduct,userData,countProduct,increaseQuantity,decreaseQuantity,deleteItem}}>
+      <storeData.Provider value={{data,addProduct,userData,countProduct,increaseQuantity,decreaseQuantity,deleteItem,Amount,checkout}}>
         {children}
       </storeData.Provider>
     )

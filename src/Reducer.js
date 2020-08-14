@@ -11,6 +11,8 @@ export const  Reducer=(state,action)=>
             return([...state,action.payload])
         case 'DELETE_ITEM':
             return(state.filter(item=>item.id!==action.payload))
+        case 'CHECKOUT':
+            return([])
         default:
             return state
     }

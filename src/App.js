@@ -14,7 +14,7 @@ function App() {
      <Nav />
      <Route exact path="/" component={Main} />
      <Route path="/cart" component={Cart} />
-     {/* <Main /> */}
+      
   </Data> 
    
     

@@ -16,8 +16,9 @@ function Nav() {
     <li className="cart"><Link to="/cart">Cart</Link><img  src={cartLogo} alt="img not found" className="logoCart"></img >
     <div className="count">{countProduct}</div></li>
             </ul>
-            
+         
         </div>
+    
     )
 }
 

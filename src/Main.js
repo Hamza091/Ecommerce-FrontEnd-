@@ -1,7 +1,7 @@
 import React,{useContext} from 'react'
 import {storeData} from './Data';
 import './Main.css'
-
+import Footer from './Footer'
 function Main() {
     const {data,addProduct}=useContext(storeData)
     return (
@@ -15,7 +15,7 @@ function Main() {
                 {!items.check?<div className="product-added">Added</div>:null}
                 </div>)
             }
-            
+            <Footer />
         </div>
     )
 }
