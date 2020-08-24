@@ -1,17 +1,26 @@
-import React,{useContext} from 'react'
-import {storeData} from './Data'
-import './totalbill.css'
+import React from 'react'
+import {useSelector} from 'react-redux'
+import './totalbill.css';
+import {Link} from 'react-router-dom';
+import axios from 'axios'
 
 function Totalbill() {
-    const {Amount,countProduct,checkout}=useContext(storeData)
-    console.log(Amount)
-    return (
+     const Amount = useSelector(state=>state.UserBillReducer.Amount)
+     const Product = useSelector(state=>state.UserBillReducer.Product)
+     const userData = useSelector(state=>state.UserReducer)
+    //  console.log(userData)
+    //  console.log(Product)
+    //  console.log(Amount)
+     
+     return (
         <div className="bill">
         <h3 className="Head">Bill</h3>
         <div className="Amount">Amount:<span>$</span>{Amount.toFixed(2)}</div>
-        <div className="Tax">Tax:<span>$</span>{(countProduct*15.30).toFixed(2)} </div>
-        <div className="Total">Total Amount:<span>$</span>{(Amount+(countProduct*15.30)).toFixed(2)}</div>
-        <button onClick={()=>checkout()} className="checkout">Checkout</button>
+        <div className="Tax">Tax:<span>$</span>{(Product*10.30).toFixed(2)} </div>
+        <div className="Total">Total Amount:<span>$</span>{(Amount+(Product*10.30)).toFixed(2)}</div>
+        {/* <button  className="checkout" onClick={checkout}>Checkout</button> */}
+        <button className="checkout"><Link to="/login" >Checkout</Link></button>
+        {/* <button className="checkout"><a href="/login">Checkout</a></button> */}
         </div>
     )
 }

@@ -1,11 +1,12 @@
-import React,{useContext} from 'react'
+import React from 'react'
+import {useSelector} from 'react-redux'
 import './nav.css'
-import {storeData} from './Data';
 import cartLogo from './cartLogo.png'
 import {Link} from 'react-router-dom';
 
+
 function Nav() {
-        const {countProduct}= useContext(storeData)
+      const product = useSelector(state=>state.UserBillReducer.Product)
         // console.log(data)
     return (
         
@@ -14,7 +15,7 @@ function Nav() {
             <li className="logo">EStore</li>
             <li className="home"><Link to="/">Home</Link></li>
     <li className="cart"><Link to="/cart">Cart</Link><img  src={cartLogo} alt="img not found" className="logoCart"></img >
-    <div className="count">{countProduct}</div></li>
+    <div className="count">{product}</div></li>
             </ul>
          
         </div>

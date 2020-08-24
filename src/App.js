@@ -1,23 +1,28 @@
 import React from 'react'; 
-import './App.css';
-import {Data} from './Data';
 import Nav from './Nav';
 import Main from './Main';
 import Cart from './Cart';
-import { Route } from 'react-router-dom';
+import Login from './Login';
+import { Route , Switch } from 'react-router-dom';
+import {Provider} from 'react-redux'
+import {Store} from './Redux/Store'
+import Register from './Register'
 
 
 function App() {
-  
+
   return (
-   <Data >
-     <Nav />
+        <Provider store={Store}> 
+    {/* <Nav /> */}
+     <Route exact path={["/","/cart"]} component={Nav}/>
+         <Switch>
      <Route exact path="/" component={Main} />
      <Route path="/cart" component={Cart} />
-      
-  </Data> 
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
+      </Switch>
+  </Provider>
    
-    
   );
   }
 

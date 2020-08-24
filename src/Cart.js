@@ -1,11 +1,38 @@
-import React,{useContext} from 'react'
-import {storeData} from './Data'
+import React from 'react'
 import './cart.css'
+import {useSelector , useDispatch} from 'react-redux'
 import Totalbill from './Totalbill'
+import { IncreaseQuantity } from './Redux/Actions/IncreaseQuantity'
+import { DecreaseQuantity } from './Redux/Actions/DecreaseQuantity'
+import { DeleteProduct } from './Redux/Actions/DeleteProduct'
+import {UserBill} from './Redux/Actions/UserBill'
 function Cart() {
    
-    const {userData,increaseQuantity,decreaseQuantity,deleteItem} = useContext(storeData);
-        return (
+    const userData = useSelector(state=>state.UserReducer)    
+    console.log(userData)
+    const dispatch = useDispatch()
+//    useEffect(() => {
+//        dispatch(UserBillReducer({Amount:items.price}))
+//    }, IncreaseQuantity())
+    
+    const increase = (items)=>
+    {
+        dispatch(IncreaseQuantity(items.id))
+        dispatch(UserBill({totalAmount:items.price,Product:0}))
+    }
+    const decrease = (items)=>
+    {
+        dispatch(DecreaseQuantity(items.id))
+        dispatch(UserBill({totalAmount:-items.price,Product:0}))
+    }
+    const deletep = (items)=>
+    {
+        dispatch(DeleteProduct(items.id))
+        dispatch(UserBill({totalAmount:-(items.price*items.quantity),Product:-1}))
+      
+    }
+    
+    return (
         
          <div>
         {userData.length===0?null:<table className="table">
@@ -14,10 +41,10 @@ function Cart() {
             {userData.map((items)=><tr key={items.id} >
                 <td className="titlecolumn">{items.title}</td>
                 <td className="pricecolumn">{items.price}</td>
-                <td className="quantitycolumn"><button className="increase"onClick={()=>{increaseQuantity({...items,quantity:items.quantity+=1})}}>+</button>{items.quantity}
-                <button className="decrease"onClick={ items.quantity>1?()=>{decreaseQuantity({...items,quantity:items.quantity-=1})}:null}>-</button></td>
+                <td className="quantitycolumn"><button className="increase" onClick={()=>increase(items)}>+</button>{items.quantity}
+                <button className="decrease"onClick={ items.quantity>1?()=>decrease(items):null}>-</button></td>
                 <td className="totalpricecolumn" >${(items.quantity*items.price).toFixed(2)}</td>
-                <td className="deletebtncolumn"><button className="delete" onClick={()=>deleteItem(items)}>Delete</button></td>
+                <td className="deletebtncolumn"><button className="delete" onClick={()=>deletep(items)}>Delete</button></td>
                 
             </tr>)
         
