@@ -2,12 +2,12 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import './totalbill.css';
 import {Link} from 'react-router-dom';
-import axios from 'axios'
+// import axios from 'axios'
 
 function Totalbill() {
      const Amount = useSelector(state=>state.UserBillReducer.Amount)
      const Product = useSelector(state=>state.UserBillReducer.Product)
-     const userData = useSelector(state=>state.UserReducer)
+    //  const userData = useSelector(state=>state.UserReducer)
     //  console.log(userData)
     //  console.log(Product)
     //  console.log(Amount)

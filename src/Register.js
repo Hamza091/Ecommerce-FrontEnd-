@@ -3,8 +3,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -15,6 +15,7 @@ import Container from '@material-ui/core/Container';
 import axios from 'axios'
 import {useSelector,useDispatch} from 'react-redux'
 import {UpdateLogin} from './Redux/UpdateLogin'
+import {useHistory} from 'react-router-dom'
 
 function Copyright() {
   return (
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+  const history = useHistory()
   const classes = useStyles();
   const [firstName,setFirstName]=useState("")
   const [lastName,setLastName]=useState("")
@@ -97,6 +99,13 @@ export default function SignUp() {
         const name = res.data.name
         if(res.data.success)
         {
+          const credentials = {id:res.data.uniqueId,success:true}
+          if(userDataInfo.length===0)
+          {
+            dispatch(UpdateLogin(credentials))
+            history.push("/")
+          }
+          else{
           try{
             const res = await axios(
               {
@@ -111,7 +120,8 @@ export default function SignUp() {
             {
                 console.log(err)
             }
-            dispatch(UpdateLogin(true))
+            dispatch(UpdateLogin(credentials))
+          }
         }
         }
         catch(err)

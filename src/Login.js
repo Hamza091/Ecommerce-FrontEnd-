@@ -4,8 +4,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
 // import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -13,11 +13,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {Link} from "react-router-dom"
+import {Link,useHistory} from "react-router-dom"
 import "./register.css"
 import {useSelector,useDispatch} from "react-redux"
 import {UpdateLogin} from './Redux/UpdateLogin'
-
 
 function Copyright() {
   return (
@@ -63,6 +62,12 @@ export default function Login() {
   const Amount = useSelector(state=>state.UserBillReducer.Amount)
   const Product = useSelector(state=>state.UserBillReducer.Product)
   const dispatch = useDispatch()
+  const history = useHistory()
+  const checkSubmit = (credentials)=>
+  {
+    dispatch(UpdateLogin(credentials))
+    history.push("/")
+  }
 
   function updateEmail (e)
   {
@@ -80,38 +85,52 @@ export default function Login() {
         e.preventDefault()
         const login = {email , password}
         console.log(login)
+        
+      
         try
         {
             const res = await axios.post("http://localhost:8888/api/login",login)
             console.log(res.data)
             const uniqueId = res.data.uniqueId
             const name = res.data.name
+            
             if(res.data.success)
             {
-              try{
-              const res = await axios(
+              const credentials = {id:res.data.uniqueId,success:true}
+                if(userData.length===0)
                 {
-                    method:"post",
-                    url:"http://localhost:8888/api/postproduct",
-                    data:{userProducts:userData,totalAmount:parseInt((Amount+(Product*10.30)).toFixed(2)),noOfProducts:Product,userName:name,userId:uniqueId}
+                   checkSubmit(credentials)
+                } 
+                else{       
+                try{
+                const res = await axios(
+                  {
+                      method:"post",
+                      url:"http://localhost:8888/api/postproduct",
+                      data:{userProducts:userData,totalAmount:parseInt((Amount+(Product*10.30)).toFixed(2)),noOfProducts:Product,userName:name,userId:uniqueId}
+                  }
+                )
+                console.log(res.data.success)
+                if(res.data.success)
+                {
+                history.push("/orders")
                 }
-              )
-              console.log(res.data)
               }
-              catch(err)
-              {
-                  console.log(err)
+                catch(err)
+                {
+                    console.log(err)
+                }
               }
-              dispatch(UpdateLogin(true))
+              dispatch(UpdateLogin(credentials))
             }
         
-          }
+          }    
         catch(err)
         {
             console.log(err)
         }
 
-                
+      
     }
   return (
     <div>
@@ -159,6 +178,7 @@ export default function Login() {
             variant="contained"
             color="primary"
             className={classes.submit}
+           
           >
             Sign In
           </Button>

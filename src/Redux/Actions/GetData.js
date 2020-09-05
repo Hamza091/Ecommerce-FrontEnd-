@@ -1,5 +1,4 @@
 import {GET_DATA }from '../Constants'
-import axios from 'axios'
 
 export const GetData = (res)=>
 {

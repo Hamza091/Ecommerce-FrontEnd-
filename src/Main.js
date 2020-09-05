@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect}  from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import './Main.css'
 import Footer from './Footer'
@@ -17,11 +17,9 @@ function Main() {
             dispatch(GetData(res))
         }
         catch(err){console.log(err)}
-        
        }
        getdata()
-    } 
-    , [])
+    } , [])
 
     let Data = useSelector(state=>state.DataReducer)
     const userData = useSelector(state=>state.UserReducer)

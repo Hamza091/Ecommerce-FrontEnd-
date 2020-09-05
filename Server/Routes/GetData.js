@@ -125,6 +125,42 @@ router
             }
         }
     )
- 
+
+    router
+    .route('/orderdetails/:id')
+    .get
+    (
+        (req,res)=>
+        {
+            try
+            {
+                // const orderid =req.params
+                var orderid = mongoose.Types.ObjectId (req.params.id)
+                // const orderIdDetails=mongoose.Types.ObjectId(orderid)
+                console.log(req.params.id)
+                console.log(req.params)
+                userData.find({userId: orderid},(err,orderdetails)=>{
+                    if(orderdetails)
+                    {
+                        console.log(orderdetails)
+                        res.send(orderdetails)
+                    }
+                    else
+                    {
+                        console.log(err)
+                        res.send({success:false})
+                    }
+                })
+            }
+            catch(err)
+            {
+                console.log(err)
+            }
+        }
+    )
+
+
+
+
 module.exports=router;
 
