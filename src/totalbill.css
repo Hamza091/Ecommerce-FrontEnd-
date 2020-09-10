@@ -1,82 +1,84 @@
 .bill
 {
-    position: fixed;
-    left: 70%;
-    width: 28%;
-    top: 170px;
+    position: relative;
+    margin-left: 15%;
+    display: flex;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
     height: 45vh;
-    background-color: rgba(142, 235, 224, 0.781);
+    width: 65%;
+    border: 1px solid rgb(161, 160, 160);
+    z-index: 3;
+    background-color: white;
+    box-shadow:  8px 8px 4px   #e0dddd;
     border-radius: 20px;
         
     
 }
 .Head
 {
-    
-    width: 80px;
-    position: relative;
+    border:2px solid gray; 
+   border-radius: 10px;
     text-align: center;
-    left: 35%;
+    position: relative;
     font-size: 30px;
     font-weight: bolder;
     font-family: Comic Sans MS;
     /* color: rgb(221, 54, 32); */
     color: rgb(248, 60, 60);
-    top: 12px;
+    
 }
 .Amount
 {
     
-    width: 230px;
+    
     position: relative;
-    float: left;
-    left: 23%;
+    margin-bottom: 1%;
     font-size: 17px;
     font-weight: 600;
     font-family: Comic Sans MS;
     border-radius: 10px;
     background-color: white;
     padding: 5px;
-    border:2px solid rgba(16, 119, 76, 0.822);
-    text-align: center;
-    top: 6%;
+    border:2px solid gray;
+    
 }
 .Tax
 {
     
-    width: 230px;
+    
     position: relative;
-    float: left;  
+    margin-bottom: 1%;
     font-size: 17px;
     font-weight: 600;
     font-family: Comic Sans MS;
-    top: 10%;
-    left: 23%;
-    border:2px solid rgba(16, 119, 76, 0.822);
-   margin-top: 10px;
+    
+    border:2px solid gray;
+   
    border-radius: 10px;
    background-color: white;
    padding: 5px;
     
-   text-align: center;
+   
 }
 .Total
 {
    
-    width: 230px;
+   
     position: relative;
-    float: left;
-    left: 23%;
     font-size: 17px;
     font-weight: 600;
+    margin-bottom: 1%;
     font-family: Comic Sans MS;
-    top: 11%;
-    margin-top: 11px;
     border-radius: 10px;
     background-color: white;
     padding: 5px;
-    border:2px solid rgba(16, 119, 76, 0.822);
-    text-align: center;
+    border:2px solid gray;
+   
 }
 span
 {
@@ -84,20 +86,18 @@ span
     padding: 3px;
 }
 .checkout{
+    margin-top: 2.5%;
     cursor: pointer;
+    margin-bottom: 1%;
     width: 230px;
     position: relative;
-    left: 24.5%;
     font-size: 17px;
     font-weight: 600;
     font-family: Comic Sans MS;
-    top: 15%;
-    margin-top: 20px;
     border-radius: 10px;
     background-color: rgb(199, 164, 199);
     padding: 5px;
     border: 2px solid purple;
-    text-align: center;
     color: purple;
 }
 @media(max-width:400px)

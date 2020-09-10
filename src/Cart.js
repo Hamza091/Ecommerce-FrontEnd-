@@ -1,17 +1,19 @@
 import React,{useEffect} from 'react'
 import './cart.css'
 import {useSelector , useDispatch} from 'react-redux'
-import Totalbill from './Totalbill'
 import { IncreaseQuantity } from './Redux/Actions/IncreaseQuantity'
 import { DecreaseQuantity } from './Redux/Actions/DecreaseQuantity'
 import { DeleteProduct } from './Redux/Actions/DeleteProduct'
 // import { DeleteProduct } from './Redux/Actions/DeleteProduct'
 import {UserBill} from './Redux/Actions/UserBill'
+import './totalbill.css';
+import {Link} from 'react-router-dom';
 // import {UserBillReducer} from './Redux/UserBillReducer'
 function Cart() {
    
     const userData = useSelector(state=>state.UserReducer)    
-  
+    const Amount = useSelector(state=>state.UserBillReducer.Amount)
+     const Product = useSelector(state=>state.UserBillReducer.Product)
   
     const dispatch = useDispatch()
 //    useEffect(() => {
@@ -55,13 +57,19 @@ function Cart() {
             </tr>)
         
             }
-                </tbody>
         
+        </tbody>
         }
-        {userData.length===0?null:<Totalbill />}
+        {userData.length===0?null: <div className="bill">
+        <h3 className="Head">Bill</h3>
+        <div className="Amount">Amount:<span>$</span>{Amount.toFixed(2)}</div>
+        <div className="Tax">Tax:<span>$</span>{(Product*10.30).toFixed(2)} </div>
+        <div className="Total">Total Amount:<span>$</span>{(Amount+(Product*10.30)).toFixed(2)}</div>
+        <button className="checkout"><Link to="/login" >Checkout</Link></button>
+        </div>}
         </div>
 
-    )
+)
         
 }
 
