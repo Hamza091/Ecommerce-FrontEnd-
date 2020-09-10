@@ -1,4 +1,5 @@
-.table
+
+.tablebody
 {
   
     position: relative;
@@ -60,3 +61,55 @@
   
 }
 
+@media(max-width:400px)
+{
+    .cartt
+    {
+        
+        display: flex;
+        flex-flow: column;
+        flex-wrap: wrap;
+        flex-direction: column;
+      
+    }
+    .table
+    {
+        position: absolute;
+        left: 1px;
+        top: 18%;
+        padding-left: 0px;
+        padding-right: 0px;
+        border-spacing : 3px;
+        border-radius: 2px;
+        width: 100%;
+    }
+    .producttitle
+    {
+        border-radius: 5px;
+        float: left;
+        display: flex;
+        padding:5px;
+        font-family: Comic Sans MS;
+        /* padding-right: 60px; */
+        font-size: 15px;
+        font-weight: 600;
+        background-color: rgb(252, 252, 252);
+        border:2px solid rgba(16, 119, 76, 0.822);
+    }
+    .delete
+    {
+        flex: 1;
+        padding: 2px;
+        border-radius: 3px;
+        padding-right: 5px;
+        text-align: center;
+        font-size: 10px;
+        font-family: Comic Sans MS;
+        font-weight: bold;
+        background-color: rgb(199, 164, 199);
+        border: 2px solid purple;
+        color: purple;
+        cursor: pointer;
+    }
+
+}

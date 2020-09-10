@@ -18,9 +18,7 @@ function Totalbill() {
         <div className="Amount">Amount:<span>$</span>{Amount.toFixed(2)}</div>
         <div className="Tax">Tax:<span>$</span>{(Product*10.30).toFixed(2)} </div>
         <div className="Total">Total Amount:<span>$</span>{(Amount+(Product*10.30)).toFixed(2)}</div>
-        {/* <button  className="checkout" onClick={checkout}>Checkout</button> */}
         <button className="checkout"><Link to="/login" >Checkout</Link></button>
-        {/* <button className="checkout"><a href="/login">Checkout</a></button> */}
         </div>
     )
 }

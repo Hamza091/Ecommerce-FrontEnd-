@@ -27,30 +27,27 @@ function Main() {
     console.log(userBill)
     console.log(Data)
     console.log(userData)
+    const check = (product) =>
+    {
+        const temp = userData.filter((item)=>item.id===product.id)
+        if(temp.length<1)
+        {
+        return true    
+        }
+        else
+        {
+            return false
+        }
+    }
     async function addProd(product)
     {
-        // try
-        // {
-        //     //  const res = await axios({
-        //     //      method:'post',
-        //     //     url:'http://localhost:8888/api/postproduct',
-        //     //     data:{
-        //     //        item: "hamza"
-        //     //     }
-
-        //     // })
-        //     // const obj = {"id":product.id}  
-
-        //     const res = await axios.post('http://localhost:8888/api/postproduct',product)
-        //     console.log(product)
-        //     console.log(res)
-
-        // }
-        // catch(err){console.log(err)}
-
-        dispatch(AddProduct(product))
-       dispatch(UserBill({totalAmount:product.price,Product:product.quantity}))
-    
+        
+        const temp = userData.filter((item)=>item.id===product.id)
+        if(temp.length<1){
+            
+            dispatch(AddProduct(product))
+            dispatch(UserBill({totalAmount:product.price,Product:product.quantity}))
+        }
     }
     return (
         <div className="main-container">
@@ -59,8 +56,8 @@ function Main() {
                 <img src={items.image} alt="img not found" className="images"></img>
                 <div className="title">{items.title}</div>
                 <div className="price">${items.price}</div>
-                <button className={items.check?"addToCart":"addedToCart"} onClick={items.check?()=>{addProd({id:items.id,title:items.title,price:items.price,image:items.image,check:items.check=false,quantity:1})}:null}>Add to cart</button>
-                {!items.check?<div className="product-added">Added</div>:null}
+                <button className={check(items)?"addToCart":"addedToCart"} onClick={items.check?()=>{addProd({id:items.id,title:items.title,price:items.price,check:items.check=false,image:items.image,quantity:1})}:null}>Add to cart</button>
+                {!check(items)?<div className="product-added">Added</div>:null}
                 </div>)
             }
             <Footer />

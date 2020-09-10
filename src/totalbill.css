@@ -100,3 +100,17 @@ span
     text-align: center;
     color: purple;
 }
+@media(max-width:400px)
+{
+    .bill
+    {
+        position: relative;
+        margin: 5px;
+       margin-top: 250px;
+       width: 95%;
+       left: 0%;
+       padding: 5px;
+
+       
+    }
+}

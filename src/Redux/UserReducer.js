@@ -11,14 +11,15 @@ export const UserReducer = (state=initialState , action)=>
     {
         case GET_USERDATA:
         return([...state.userData])
-
         
 
         case ADD:
-        return([...state,action.payload])
+            return([...state,action.payload])
         
         case INCREASE_QUANTITY:
             return(state.map((item)=>item.id===action.payload?{...item,quantity:item.quantity+1}:item))
+            
+           
         
         case DECREASE_QUANTITY:
             return(state.map((item)=>item.id===action.payload?{...item,quantity:item.quantity-1}:item))
