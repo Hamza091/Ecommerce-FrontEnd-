@@ -104,13 +104,11 @@ span
 {
     .bill
     {
-        position: relative;
-        margin: 5px;
-       margin-top: 250px;
-       width: 95%;
        left: 0%;
-       padding: 5px;
-
+       margin: 5%;
+       width: 90%;
+       margin-left: 3%;
+       
        
     }
 }

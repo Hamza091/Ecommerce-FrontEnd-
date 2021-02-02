@@ -17,6 +17,7 @@ import {Link,useHistory} from "react-router-dom"
 import "./register.css"
 import {useSelector,useDispatch} from "react-redux"
 import {UpdateLogin} from './Redux/UpdateLogin'
+import {clearUserData} from './Redux/Actions/ClearUserData'
 
 function Copyright() {
   return (
@@ -89,14 +90,25 @@ export default function Login() {
       
         try
         {
-            const res = await axios.post("http://localhost:8888/api/login",login)
+            const res = await axios.post("http://192.168.0.105:8888/api/login",login)
             console.log(res.data)
             const uniqueId = res.data.uniqueId
             const name = res.data.name
-            
+            const admin = res.data.admin
             if(res.data.success)
             {
               const credentials = {id:res.data.uniqueId,success:true}
+              if(admin)
+              {
+                  if(userData.length!=0)
+                  {
+                    dispatch(clearUserData())
+                  }
+                  dispatch(UpdateLogin(credentials))
+                  history.push("/admin")
+              }
+              else
+              {
                 if(userData.length===0)
                 {
                    checkSubmit(credentials)
@@ -106,15 +118,18 @@ export default function Login() {
                 const res = await axios(
                   {
                       method:"post",
-                      url:"http://localhost:8888/api/postproduct",
+                      url:"http://192.168.0.105:8888/api/postproduct",
                       data:{userProducts:userData,totalAmount:parseInt((Amount+(Product*10.30)).toFixed(2)),noOfProducts:Product,userName:name,userId:uniqueId}
                   }
                 )
                 console.log(res.data.success)
                 if(res.data.success)
                 {
-                history.push("/orders")
+                  dispatch(clearUserData())
+                  alert("your order has been placed...")
+                  history.push("/")
                 }
+              
               }
                 catch(err)
                 {
@@ -122,9 +137,11 @@ export default function Login() {
                 }
               }
               dispatch(UpdateLogin(credentials))
+              }
             }
-        
-          }    
+            }
+          
+          
         catch(err)
         {
             console.log(err)

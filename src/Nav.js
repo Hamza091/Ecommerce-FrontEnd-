@@ -44,6 +44,10 @@ function Nav() {
         }//        const cross =document.querySelector(".hamburger")
         
     }
+    const handleCheck = ()=>
+    {
+        setcheck(false)
+    }
     
         // console.log(data)
     return (
@@ -56,11 +60,11 @@ function Nav() {
             </div>
                 <div className="estore">EStore</div>
             <ul className="list">
-                <li className="home" ><Link to="/" >Home</Link></li>
-                <li className={checkLogin?"setCart":"cart"}><Link to="/cart">Cart</Link><img  src={cartLogo} alt="img not found" className="logoCart"></img >
+                <li className="home" onClick={handleCheck}><Link to="/" >Home</Link></li>
+                <li className={checkLogin?"setCart":"cart"} onClick={handleCheck}><Link to="/cart">Cart</Link><img  src={cartLogo} alt="img not found" className="logoCart"></img >
                 <div className="count">{product}</div></li>
-                {!checkLogin?<li className="login" ><Link to="/login">Login</Link></li>:null}
-                <li className={checkLogin?"setOrders":"orders"}><Link to="/orders">Orders</Link></li>
+                {!checkLogin?<li className="login" onClick={handleCheck}><Link to="/login">Login</Link></li>:null}
+                <li className={checkLogin?"setOrders":"orders"} onClick={handleCheck}><Link to="/orders">Orders</Link></li>
                 
             </ul>
          

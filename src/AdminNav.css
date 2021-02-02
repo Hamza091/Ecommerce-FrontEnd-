@@ -1,0 +1,7 @@
+.navContainer
+{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(78, 74, 74, 0.925);
+    height: 90px;
+}

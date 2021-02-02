@@ -17,6 +17,7 @@
     margin-top: 30px;
     font-size: 20px;
     font-weight: 600;
+    z-index: 2;
     font-family: "Comic Sans MS", cursive, sans-serif; 
 }
 a{
@@ -142,9 +143,9 @@ a{
     .clickList
     {
         /* display: block; */
-        display: flex; 
-         flex-wrap: wrap;
-        flex-direction: column; 
+        display: inline-block; 
+         /* flex-wrap: wrap;
+        flex-direction: column;  */
         /* border: 2px solid red; */
         position: relative;
         background-color: rgba(78, 74, 74, 0.925);

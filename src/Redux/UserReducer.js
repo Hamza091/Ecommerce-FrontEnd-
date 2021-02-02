@@ -1,4 +1,4 @@
-import {ADD, DECREASE_QUANTITY, DELETE_PRODUCT, GET_USERDATA, INCREASE_QUANTITY} from './Constants'
+import {ADD, DECREASE_QUANTITY, DELETE_PRODUCT, GET_USERDATA, INCREASE_QUANTITY,CLEAR_USERDATA} from './Constants'
 
 
 const initialState = []
@@ -26,6 +26,9 @@ export const UserReducer = (state=initialState , action)=>
 
         case DELETE_PRODUCT:
             return(state.filter((item)=>item.id!==action.payload))
+        
+        case CLEAR_USERDATA:
+            return(state.userData=[])
 
         default:
         return state

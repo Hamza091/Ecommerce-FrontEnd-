@@ -6,6 +6,7 @@
    left: 20%;
    margin-top: 2%;
    border-spacing: 6px;
+   z-index: 1;
 }
 
 /* .tablebody{border: 2px solid red;} */
@@ -56,6 +57,7 @@
 
 @media(max-width:400px)
 {
+
     .cartt
     {
         
@@ -63,7 +65,8 @@
         flex-flow: column;
         flex-wrap: wrap;
         flex-direction: column;
-      
+         left: 0%;
+        border-spacing: 4px;
     }
     .table
     {
@@ -87,14 +90,15 @@
         font-size: 15px;
         font-weight: 600;
         background-color: rgb(252, 252, 252);
-        border:2px solid rgba(16, 119, 76, 0.822);
+        border:2px solid gray;
     }
     .delete
     {
+        margin-left: 0px;
         flex: 1;
-        padding: 2px;
-        border-radius: 3px;
-        padding-right: 5px;
+        padding: 1px;
+        border-radius: 5px;
+        padding-right: 2px;
         text-align: center;
         font-size: 10px;
         font-family: Comic Sans MS;
@@ -103,6 +107,8 @@
         border: 2px solid purple;
         color: purple;
         cursor: pointer;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
 }
