@@ -99,6 +99,8 @@ function Products() {
             )
             console.log(res)
             alert("Product Added...")
+            const resp = await axios.get('http://192.168.0.105:8888/api/postnewproduct')
+            Dispatch(resp)
         }
         catch(err)
         {
