@@ -97,7 +97,7 @@ export default function Login() {
             const admin = res.data.admin
             if(res.data.success)
             {
-              const credentials = {id:res.data.uniqueId,success:true}
+              const credentials = {id:res.data.uniqueId,success:true,admin:res.data.admin}
               if(admin)
               {
                   if(userData.length!=0)

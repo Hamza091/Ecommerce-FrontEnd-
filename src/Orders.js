@@ -17,7 +17,7 @@ function Orders() {
          {
             try
             {
-               await axios.get(`http://192.168.0.103:8888/api/orderdetails/${userId.id}`)
+               await axios.get(`http://192.168.0.105:8888/api/orderdetails/${userId.id}`)
                            .then((res)=>dispatch(GetOrders(res.data)))
             }
             catch(err)
