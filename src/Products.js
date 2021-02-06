@@ -86,7 +86,7 @@ function Products() {
             }
             else
             {
-                alert("Nothing changed")
+                createProd("none")
             }
         }
         else

@@ -272,6 +272,32 @@ router
             }
         }
     )
+    router
+    .route("/getuserorders")
+    .get(
+        (req,res)=>
+        {
+            try
+            {
+                userData.find().sort({_id:1}).exec((err,response)=>
+                {
+                    if(err)
+                    {
+                        console.log(err)
+                        res.send({success:false})
+                    }
+                    else
+                    {
+                        res.send({success:true,resonse})
+                    }
+                })
+            }
+            catch(err)
+            {
+                console.log(err)
+            }
+        }
+    )
 
 module.exports=router;
 
