@@ -13,7 +13,7 @@ function Main() {
        async function getdata(){
         try
         {
-            const res = await axios.get('http://192.168.0.105:8888/api/getdata')
+            const res = await axios.get('http://192.168.0.103:8888/api/getdata')
             console.log(res)
             dispatch(GetData(res))
         }

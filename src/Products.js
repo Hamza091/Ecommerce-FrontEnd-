@@ -46,14 +46,14 @@ function Products() {
     }
     async function deleteBtn(id)
     {
-        const res = await axios.post('http://192.168.0.105:8888/api/deleteproduct'  ,{
+        const res = await axios.post('http://192.168.0.103:8888/api/deleteproduct'  ,{
             data:{id}
         }
         )
         if(res.data.success)
         {
             alert("Product deleted successfully...")
-            const resp = await axios.get('http://192.168.0.105:8888/api/getdata')
+            const resp = await axios.get('http://192.168.0.103:8888/api/getdata')
             Dispatch(GetData(resp))
         }
         else
@@ -67,7 +67,7 @@ function Products() {
         {
             if(obj.prevName!==name||obj.prevPrice!==price||obj.prevDesc!==description||obj.prevCategory!==category||obj.prevImage!==image)
             {
-                const res = await axios.post('http://192.168.0.105:8888/api/updateproduct',
+                const res = await axios.post('http://192.168.0.103:8888/api/updateproduct',
                 {
                     data:{id,name,price,description,category,image}
             })
@@ -76,7 +76,7 @@ function Products() {
                 {
                     alert("product updated...")
                     createProd("none")
-                    const resp = await axios.get('http://192.168.0.105:8888/api/getdata')
+                    const resp = await axios.get('http://192.168.0.103:8888/api/getdata')
                     Dispatch(GetData(resp))
                 }
                 else
@@ -93,14 +93,16 @@ function Products() {
         {
         try
         {
-            const res = await axios.post('http://192.168.0.105:8888/api/postnewproduct',{data:{
+            const res = await axios.post('http://192.168.0.103:8888/api/postnewproduct',{data:{
                 name,price,description,category,image
             }}
             )
             console.log(res)
             alert("Product Added...")
-            const resp = await axios.get('http://192.168.0.105:8888/api/postnewproduct')
-            Dispatch(resp)
+            const resp = await axios.get('http://192.168.0.103:8888/api/getdata')
+            Dispatch(GetData(resp))
+            // const resp = await axios.get('http://192.168.0.103:8888/api/postnewproduct')
+            // Dispatch(resp)
         }
         catch(err)
         {

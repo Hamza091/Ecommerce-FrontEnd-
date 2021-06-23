@@ -1,8 +1,9 @@
 import React from 'react'
-import axios from './axios'
+import {useSelector,useDispatch} from 'react-redux'
+
 
 function UserOrders() {
-    
+    let data = useSelector(state=>state.UserReducer)
     return (
         <div className="grid">
               { data.map((item)=><div className="orderDetails">

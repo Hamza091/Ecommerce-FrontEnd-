@@ -6,6 +6,7 @@ var bodyParser = require('body-parser')
 var app = express()
 var jsonParser = bodyParser.json()
 app.use(cors())
+// console.log('hellow')
 app.use('/api',jsonParser,Data)
 
 

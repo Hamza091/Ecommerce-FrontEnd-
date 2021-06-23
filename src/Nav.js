@@ -64,6 +64,7 @@ function Nav() {
                 <li className={checkLogin?"setCart":"cart"} onClick={handleCheck}><Link to="/cart">Cart</Link><img  src={cartLogo} alt="img not found" className="logoCart"></img >
                 <div className="count">{product}</div></li>
                 {!checkLogin?<li className="login" onClick={handleCheck}><Link to="/login">Login</Link></li>:null}
+                
                 <li className={checkLogin?"setOrders":"orders"} onClick={handleCheck}><Link to="/orders">Orders</Link></li>
                 
             </ul>

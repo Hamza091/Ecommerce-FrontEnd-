@@ -90,7 +90,7 @@ export default function Login() {
       
         try
         {
-            const res = await axios.post("http://192.168.0.105:8888/api/login",login)
+            const res = await axios.post("http://192.168.0.103:8888/api/login",login)
             console.log(res.data)
             const uniqueId = res.data.uniqueId
             const name = res.data.name
@@ -118,7 +118,7 @@ export default function Login() {
                 const res = await axios(
                   {
                       method:"post",
-                      url:"http://192.168.0.105:8888/api/postproduct",
+                      url:"http://192.168.0.103:8888/api/postproduct",
                       data:{userProducts:userData,totalAmount:parseInt((Amount+(Product*10.30)).toFixed(2)),noOfProducts:Product,userName:name,userId:uniqueId}
                   }
                 )

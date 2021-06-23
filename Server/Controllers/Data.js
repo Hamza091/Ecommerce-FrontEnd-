@@ -15,6 +15,6 @@ const getData = new mongoose.Schema(
 
 
 
-module.exports=mongoose.model("getData",getData,"storedata")
+module.exports=mongoose.model("getData",getData,"store")
 
 

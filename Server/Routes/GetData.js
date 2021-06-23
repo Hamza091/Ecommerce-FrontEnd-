@@ -11,8 +11,9 @@ var postData = require('../Controllers/PostData')
 // "category":"women clothing","image":"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"}]
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-    mongoose.connect('mongodb://localhost/Estore', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
+    
+    mongoose.connect('mongodb+srv://hamza:hk123@cluster0.ycueu.mongodb.net/Estore', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
+    // mongoose.connect('mongodb://localhost/Estore', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
     var db = mongoose.connection;
 
 router
@@ -24,7 +25,6 @@ router
                 getData.find((err,data)=>{
                 if(res)
                 {
-            
                     res.send(data)
                 }
                 else
@@ -188,6 +188,7 @@ router
                     productdata.description=reqData.description
                     productdata.category=reqData.category
                     productdata.image=reqData.image
+                console.log(productdata)
                 const post = new postData(productdata)
                 const desc={success:false}
                 post.save((err,response)=>

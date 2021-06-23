@@ -93,7 +93,7 @@ export default function SignUp() {
         const num =parseInt(number)
         const userData = {firstName,lastName,email,password,address,num}
         try{
-        const res = await axios.post("http://192.168.0.106:8888/api/register",userData)
+        const res = await axios.post("http://192.168.0.103:8888/api/register",userData)
         console.log(res.data)
         const uniqueId = res.data.uniqueId
         const name = res.data.name
@@ -111,7 +111,7 @@ export default function SignUp() {
               {
                   method:"post",
                   //url:"http://localhost:8888/api/postproduct",
-                  url:"http://192.168.0.106:8888/api/postproduct",
+                  url:"http://192.168.0.103:8888/api/postproduct",
                   data:{userProducts:userDataInfo,totalAmount:parseInt((Amount+(Product*10.30)).toFixed(2)),noOfProducts:Product,userName:name,userId:uniqueId}
               }
             )
